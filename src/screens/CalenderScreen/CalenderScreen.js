@@ -4,7 +4,8 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import styles from './styles';
 import Modal from 'react-native-modal';
 import {Button, Image} from 'react-native-elements'
-import logo from 'C:/Users/Stephanie/Desktop/desktop 2 - electric boogaloo/gatech/FollowUpper/src/assets/thinking.svg'
+import logo from '../../assets/thinking.svg'
+// import logo from 'C:/Users/Stephanie/Desktop/desktop 2 - electric boogaloo/gatech/FollowUpper/src/assets/thinking.svg'
 
 const vacation = {key:'vacation', color: 'red', selectedDotColor: 'blue'};
 const massage = {key:'massage', color: 'blue', selectedDotColor: 'blue'};
