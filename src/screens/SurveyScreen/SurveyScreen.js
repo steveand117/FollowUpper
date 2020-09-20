@@ -111,14 +111,15 @@ export default class SurveyScreen extends Component {
         }
         firebase.database().ref('users/' + Math.floor(Math.random() * 100)).set(answersAsObj);
         if (sum < 7) {
-            alert("You show no symptoms of Covid-19, but still be alert. Thank you for checking in!")
+            alert("You show mild to no symptoms of Covid-19 and likely do not need extra attention at the time. Stay alert and thank you for checking in!")
         }
         if (sum > 6 && sum < 21) {
-            alert("There is reasonable concern for Covid. Call your local medical professional to figure out the next steps")
+            alert("Based on some of your responses, you may need additional medical attention. Be on the lookout for a message from your doctor.")
         }
         if (sum > 20) {
-            alert("Due to showing emergency warning signs (Shortness of breathe), you should seek emergency medical care immediently.")
+            alert("Based on your symptoms, you may need emergency medical care. A medical professional will reach out to you shortly.")
         }
+
         //0[object Object][object Object],[object Object],[object Object],[object Object]23
         this.props.navigation.navigate('Home', this.props);
     }

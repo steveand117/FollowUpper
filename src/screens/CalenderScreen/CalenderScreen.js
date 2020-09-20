@@ -3,7 +3,8 @@ import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View, Alert } fr
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import styles from './styles';
 import Modal from 'react-native-modal';
-import {Button} from 'react-native-elements'
+import {Button, Image} from 'react-native-elements'
+import logo from 'C:/Users/Stephanie/Desktop/desktop 2 - electric boogaloo/gatech/FollowUpper/src/assets/thinking.svg'
 
 const vacation = {key:'vacation', color: 'red', selectedDotColor: 'blue'};
 const massage = {key:'massage', color: 'blue', selectedDotColor: 'blue'};
@@ -49,7 +50,15 @@ export default function CalenderScreen(prop) {
     };
     return (
         <View style={[styles.background]}>
+            <Image
+                source={{ uri: logo}}
+                style={{ width: 200, height: 200 }}
+            />
         <View style={styles.container}>
+            <Text style={styles.titleText}>
+                    {'UPCOMING APPOINTMENTS'}
+            </Text>
+
         <Calendar
           current={'2020-09-20'}
           hideArrows={false}
@@ -72,13 +81,14 @@ export default function CalenderScreen(prop) {
               {key: 'bruh', color: 'green', selectedDotColor: 'green'}
             ],
           },
+
             [selected]: {
               selected: true,
               disableTouchEvent: true,
               selectedColor: 'rgba(160,210,250,1)',
               selectedTextColor: 'white',
               selectedDotColor: 'white'
-            }, 
+            },
           }}
 
         />

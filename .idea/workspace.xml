@@ -22,10 +22,11 @@
     <list default="true" id="763f7481-b428-485e-a543-77843bb33c8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackmit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/hackmit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hackmit.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/hackmit.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CalenderScreen/CalenderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CalenderScreen/CalenderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CalenderScreen/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CalenderScreen/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SurveyScreen/SurveyScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SurveyScreen/SurveyScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

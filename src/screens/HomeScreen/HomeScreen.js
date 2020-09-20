@@ -90,7 +90,7 @@ export default function HomeScreen(props) {
             </Text>
               <Image
                 source={{ uri: logo}}
-                style={{ width: 200, height: 200 }}
+                style={{ width: 250, height: 250 }}
               />
               <View style={{
                   flexDirection: "column",
@@ -107,8 +107,8 @@ export default function HomeScreen(props) {
             </Text> 
             <Text style={styles.entityText}>
                 You have
-                <Text style={styles.titleText}>{' not completed your check '}</Text> 
-                in for the day. Please tap the button below to check in..
+                <Text style={styles.titleText}>{' not completed your check in '}</Text>
+                for the day. Please tap the button below to check in.
             </Text>
             </View>
                 <TouchableOpacity

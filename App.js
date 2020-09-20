@@ -75,6 +75,10 @@ export default function App() {
                 value: '21'
             },
             {
+                optionText: 'Chest pain or pressure',
+                value: '21'
+            },
+            {
                 optionText: 'No symptoms',
                 value: '0'
             },
