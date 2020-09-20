@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import styles from './styles';
-import { firebase } from '../../firebase/config'
+import { firebase } from '../../firebase/config';
 
 export default function HomeScreen(props) {
 
@@ -9,11 +9,11 @@ export default function HomeScreen(props) {
     const [entities, setEntities] = useState([])
 
     const entityRef = firebase.firestore().collection('entities')
-    const userID = props.extraData.id
+    // const userID = props.extraData.id
 
     useEffect(() => {
         entityRef
-            .where("authorID", "==", userID)
+            // .where("authorID", "==", "bruh")
             .orderBy('createdAt', 'desc')
             .onSnapshot(
                 querySnapshot => {
@@ -36,7 +36,7 @@ export default function HomeScreen(props) {
             const timestamp = firebase.firestore.FieldValue.serverTimestamp();
             const data = {
                 text: entityText,
-                authorID: userID,
+                // authorID: userID,
                 createdAt: timestamp,
             };
             entityRef
@@ -51,8 +51,8 @@ export default function HomeScreen(props) {
         }
     }
 
-    const onBeginCheckIn = (props, user) => {
-        navigation.navigate('survey')
+    const onBeginCheckIn = () => {
+        props.navigation.navigate("Survey", {})
     }
 
     const renderEntity = ({item, index}) => {
@@ -68,35 +68,15 @@ export default function HomeScreen(props) {
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
-                <TextInput
-                    style={styles.input}
-                    placeholder='Add new entity'
-                    placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setEntityText(text)}
-                    value={entityText}
-                    underlineColorAndroid="transparent"
-                    autoCapitalize="none"
-                />
-                <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
-                    <Text style={styles.buttonText}>Add</Text>
-                </TouchableOpacity>
+
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => onBeginCheckIn()}>
-                    <Text style={styles.buttonTitle}>Begin Check In</Text>
+                    onPress={onBeginCheckIn}
+                    >
+                    <Text style={styles.buttonText}>Begin Check In</Text>
                 </TouchableOpacity>
             </View>
             
-            { entities && (
-                <View style={styles.listContainer}>
-                    <FlatList
-                        data={entities}
-                        renderItem={renderEntity}
-                        keyExtractor={(item) => item.id}
-                        removeClippedSubviews={true}
-                    />
-                </View>
-            )}
         </View>
     )
 }

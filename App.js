@@ -2,19 +2,20 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { LoginScreen, HomeScreen, RegistrationScreen, SurveyScreen } from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import CalenderScreen from './src/screens/CalenderScreen/CalenderScreen';
 if (!global.btoa) {  global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
-
 
   // useEffect(() => {
   //   const usersRef = firebase.firestore().collection('users');
@@ -36,21 +37,53 @@ export default function App() {
   //     }
   //   });
   // }, []);
-
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen name="Survey">
-            {props => <SurveyScreen {...props} extraData={user} />}
-          </Stack.Screen>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
 
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Registration" component={RegistrationScreen} />
-          <Stack.Screen name="Home">
+            if (route.name === 'Home') {
+              iconName = focused
+                ? 'clipboard-account'
+                : 'clipboard-account-outline';
+            }
+            if (route.name == 'Survey') {
+              iconName = focused
+                ? 'check-bold'
+                : 'check-outline'
+              if (focused) {
+                size = size + 7
+              }
+            }
+            if (route.name == 'Calender') {
+              iconName = focused
+                ? 'calendar-blank'
+                : 'calendar-blank-outline'
+            }
+
+            // You can return any component that you like here!
+            return <Icon name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+      >
+      <Tab.Screen name="Home">
             {props => <HomeScreen {...props} extraData={user} />}
-          </Stack.Screen>
-
-      </Stack.Navigator>
+          </Tab.Screen>
+          <Tab.Screen name="Survey">
+            {props => <SurveyScreen {...props} extraData={user} />}
+          </Tab.Screen>
+          <Tab.Screen name="Calender">
+            {props => <CalenderScreen {...props} extraData={user} />}
+          </Tab.Screen>
+            <Tab.Screen name="Login" component={LoginScreen} />
+            <Tab.Screen name="Registration" component={RegistrationScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
