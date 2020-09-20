@@ -3,7 +3,9 @@ import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'rea
 import styles from './styles';
 import { firebase } from '../../firebase/config';
 import {Image} from 'react-native-elements'
-import logo from 'C:/Users/Stephanie/Desktop/desktop 2 - electric boogaloo/gatech/FollowUpper/src/assets/hackmit.svg'
+import logo from '../../assets/hackmit.svg'
+// lol this hard coded path is jank, does this really not work for u?
+// import logo from 'C:/Users/Stephanie/Desktop/desktop 2 - electric boogaloo/gatech/FollowUpper/src/assets/hackmit.svg'
 
 const covidSurvey = [
     {
@@ -81,15 +83,34 @@ export default function HomeScreen(props) {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.formContainer}>
+    <View style={styles.container}>
+        <View style={styles.formContainer}>
             <Text style={styles.titleText}>
                     {'FOLLOWUPPER'}
-                  </Text>
+            </Text>
               <Image
                 source={{ uri: logo}}
                 style={{ width: 200, height: 200 }}
               />
+              <View style={{
+                  flexDirection: "column",
+                  maxWidth: '70%',
+                  alignContent: 'center',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '5px'
+            }}>
+            <Text style={styles.entityText}>
+                Welcome back! You have 
+                <Text style={styles.titleText}>{' 7 '}</Text> 
+                days left in your followup schdule.
+            </Text> 
+            <Text style={styles.entityText}>
+                You have
+                <Text style={styles.titleText}>{' not completed your check '}</Text> 
+                in for the day. Please tap the button below to check in..
+            </Text>
+            </View>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={onBeginCheckIn}

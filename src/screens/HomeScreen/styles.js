@@ -20,7 +20,7 @@ export default StyleSheet.create({
         // marginBottom: 20,
         // flex: 1,
         // paddingTop: 10,
-        // paddingBottom: 10,
+        paddingBottom: 10,
         // paddingLeft: 30,
         // paddingRight: 30,
         justifyContent: 'center',
@@ -48,6 +48,7 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 18,
         fontFamily: ActorFont,
+
     },
     listContainer: {
         marginTop: 20,
@@ -61,7 +62,9 @@ export default StyleSheet.create({
     },
     entityText: {
         fontSize: 20,
-        color: '#333333'
+        color: '#333333',
+        textAlign: 'center',
+        margin: '5px'
     },
     titleText: {
         fontSize: 24,
