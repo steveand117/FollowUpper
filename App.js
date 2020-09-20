@@ -16,17 +16,76 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   
   const defaultSurvey = [
-
-    {
-        questionType: 'Info',
-        questionText: 'Welcome2212121 to the React Native Simple Survey Example app! Tap next to continue'
+  {
+        questionType: 'SelectionGroup',
+        questionText:
+            'How would you describe your overall energy level today?',
+        questionId: 'energyLevel',
+        options: [
+            {
+                optionText: 'I was active and moving about.',
+                value: 'high'
+            },
+            {
+                optionText: 'I completed daily tasks with no trouble.',
+                value: 'normal'
+            },
+            {
+                optionText: 'I had mild discomfort but still completed daily tasks.',
+                value: 'belowNormal'
+            },
+            {
+                optionText: 'I was tired and had to rest often.',
+                value: 'tired'
+            },
+            {
+                optionText: 'I was fatigued and mostly did not move.',
+                value: 'fatigued'
+            }
+        ]
     },
     {
-        questionType: 'TextInput',
-        questionText: 'Simple Survey supports free form text input.\n\nWhat is your favorite color?',
-        questionId: 'favoriteColor',
-        placeholderText: 'Tell me your favorite color!',
-    }
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Which of these symptoms did you experience today? Select all that apply.',
+        questionId: 'symptoms',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: 1,
+        },
+        options: [
+            {
+                optionText: 'Coughing',
+                value: 'coughing'
+            },
+            {
+                optionText: 'Fever',
+                value: 'fever'
+            },
+            {
+                optionText: 'Hot/cold flashes',
+                value: 'chills'
+            },
+            {
+                optionText: 'Loss of taste or smell',
+                value: 'loss sense'
+            },
+            {
+                optionText: 'Shortness of breath',
+                value: 'short breath'
+            },
+            {
+                optionText: 'No symptoms',
+                value: 'none'
+            },
+        ]
+    },
+            {
+                questionType: 'TextInput',
+                questionText: 'Do you have anything else to note for today\'s check in?',
+                questionId: 'favoriteColor',
+                placeholderText: 'Type here...',
+            },
 ];
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
