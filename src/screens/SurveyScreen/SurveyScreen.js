@@ -5,6 +5,7 @@ import { SimpleSurvey } from 'react-native-simple-survey';
 import { firebase } from '../../firebase/config'
 import {setCustomText, setCustomTextInput} from 'react-native-global-props';
 import { Button } from 'react-native-elements';
+import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
 
 
@@ -44,6 +45,8 @@ let survey = [
 
 
 export default class SurveyScreen extends Component {
+
+
     static navigationOptions = () => {
         return {
             headerStyle: {
@@ -63,7 +66,7 @@ export default class SurveyScreen extends Component {
         super(props);
         let survey;
         // this.itemsRef = firebase.database().ref();
-        survey = this.props.survey == null ? defaultSurvey : this.props.survey;
+        // this.props.survey = this.props.survey == null ? defaultSurvey : this.props.survey;
         this.state = { backgroundColor: BLUE, answersSoFar: '' };
     }
 
@@ -99,7 +102,7 @@ export default class SurveyScreen extends Component {
         // Convert from an array to a proper object. This won't work if you have duplicate questionIds
         const answersAsObj = {};
         for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
-        firebase.database().ref().push(answersAsObj);
+        firebase.database().ref().push(defaultSurvey);
         this.props.navigation.navigate('Home', this.props);
     }
 
