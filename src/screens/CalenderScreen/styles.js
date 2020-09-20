@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        minWidth: '70%',
-        maxWidth: '90%',
+        minWidth: 400,
+        maxWidth: 800,
         alignItems: 'stretch',
         justifyContent: 'center',
         flex: 1, 

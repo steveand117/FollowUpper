@@ -14,7 +14,7 @@ const ActorFont = "Actor Regular";
 
 const BLUE = 'rgba(160,210,250,1)';
 const WHITE = 'rgba(255,255,255,1)';
-
+const surveyRef = firebase.firestore().collection('surveys')
 
 const defaultSurvey = [
 
@@ -67,7 +67,7 @@ export default class SurveyScreen extends Component {
         let survey;
         // this.itemsRef = firebase.database().ref();
         // this.props.survey = this.props.survey == null ? defaultSurvey : this.props.survey;
-        this.state = { backgroundColor: BLUE, answersSoFar: '' };
+        this.state = { backgroundColor: BLUE, answersSoFar: '', jsonIsVisible: 'false'};
     }
 
     onSurveyFinished(answers) {
@@ -101,8 +101,25 @@ export default class SurveyScreen extends Component {
 
         // Convert from an array to a proper object. This won't work if you have duplicate questionIds
         const answersAsObj = {};
-        for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
-        firebase.database().ref().push(defaultSurvey);
+        let sum = 0
+        for (const elem of infoQuestionsRemoved) { 
+            answersAsObj[elem.questionId] = elem.value; 
+        }
+        sum += parseInt(answersAsObj["energyLevel"].value);
+        for (const elem of answersAsObj["symptoms"]) {
+            sum += parseInt(elem.value)
+        }
+        firebase.database().ref('users/' + Math.floor(Math.random() * 100)).set(answersAsObj);
+        if (sum < 7) {
+            alert("You show no symptoms of Covid-19. Be careful, and check your temperature often!")
+        }
+        if (sum > 6 && sum < 21) {
+            alert("There is reasonable concern for Covid. Call your local medical professional to figure out the next steps")
+        }
+        if (sum > 20) {
+            alert("Due to showing emergency warning signs (Shortness of breathe), you should seek emergency medical care immediently.")
+        }
+        //0[object Object][object Object],[object Object],[object Object],[object Object]23
         this.props.navigation.navigate('Home', this.props);
     }
 

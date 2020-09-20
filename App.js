@@ -24,23 +24,23 @@ export default function App() {
         options: [
             {
                 optionText: 'I was active and moving about.',
-                value: 'high'
+                value: '-2'
             },
             {
                 optionText: 'I completed daily tasks with no trouble.',
-                value: 'normal'
+                value: '0'
             },
             {
                 optionText: 'I had mild discomfort but still completed daily tasks.',
-                value: 'belowNormal'
+                value: '0'
             },
             {
                 optionText: 'I was tired and had to rest often.',
-                value: 'tired'
+                value: '1'
             },
             {
                 optionText: 'I was fatigued and mostly did not move.',
-                value: 'fatigued'
+                value: '2'
             }
         ]
     },
@@ -56,34 +56,34 @@ export default function App() {
         options: [
             {
                 optionText: 'Coughing',
-                value: 'coughing'
+                value: '3'
             },
             {
                 optionText: 'Fever',
-                value: 'fever'
+                value: '5'
             },
             {
                 optionText: 'Hot/cold flashes',
-                value: 'chills'
+                value: '5'
             },
             {
                 optionText: 'Loss of taste or smell',
-                value: 'loss sense'
+                value: '5'
             },
             {
                 optionText: 'Shortness of breath',
-                value: 'short breath'
+                value: '21'
             },
             {
                 optionText: 'No symptoms',
-                value: 'none'
+                value: '0'
             },
         ]
     },
             {
                 questionType: 'TextInput',
                 questionText: 'Do you have anything else to note for today\'s check in?',
-                questionId: 'favoriteColor',
+                questionId: 'finalNotes',
                 placeholderText: 'Type here...',
             },
 ];

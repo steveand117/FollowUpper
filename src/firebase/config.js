@@ -9,8 +9,7 @@ const firebaseConfig = {
   projectId: "followupper-790d3",
   storageBucket: "followupper-790d3.appspot.com",
   messagingSenderId: "571597173324",
-  appId: "1:571597173324:web:d21b485b8090dbc69dbae9",
-  measurementId: "G-SWW64FRSBN"
+  appId: "1:571597173324:web:d21b485b8090dbc69dbae9"
 };
 
 if (!firebase.apps.length) {
