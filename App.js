@@ -14,6 +14,20 @@ if (!global.atob) { global.atob = decode }
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  
+  const defaultSurvey = [
+
+    {
+        questionType: 'Info',
+        questionText: 'Welcome2212121 to the React Native Simple Survey Example app! Tap next to continue'
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Simple Survey supports free form text input.\n\nWhat is your favorite color?',
+        questionId: 'favoriteColor',
+        placeholderText: 'Tell me your favorite color!',
+    }
+];
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
 
@@ -73,13 +87,13 @@ export default function App() {
         }}
       >
       <Tab.Screen name="Home">
-            {props => <HomeScreen {...props} extraData={user} />}
+            {props => <HomeScreen {...props} extraData={user} survey={defaultSurvey} />}
           </Tab.Screen>
           <Tab.Screen name="Survey">
-            {props => <SurveyScreen {...props} extraData={user} />}
+            {props => <SurveyScreen {...props} extraData={user} survey={defaultSurvey} />}
           </Tab.Screen>
           <Tab.Screen name="Calender">
-            {props => <CalenderScreen {...props} extraData={user} />}
+            {props => <CalenderScreen {...props} extraData={user} survey={defaultSurvey} />}
           </Tab.Screen>
             <Tab.Screen name="Login" component={LoginScreen} />
             <Tab.Screen name="Registration" component={RegistrationScreen} />

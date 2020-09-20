@@ -63,7 +63,7 @@ export default class SurveyScreen extends Component {
         super(props);
         let survey;
         // this.itemsRef = firebase.database().ref();
-        survey = props.survey == null ? defaultSurvey : props.survey;
+        survey = this.props.survey == null ? defaultSurvey : this.props.survey;
         this.state = { backgroundColor: BLUE, answersSoFar: '' };
     }
 
@@ -100,7 +100,7 @@ export default class SurveyScreen extends Component {
         const answersAsObj = {};
         for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
         firebase.database().ref().push(answersAsObj);
-        this.props.navigation.navigate('Home', props);
+        this.props.navigation.navigate('Home', this.props);
     }
 
     /**
@@ -245,7 +245,7 @@ export default class SurveyScreen extends Component {
                 <View style={styles.container}>
                     <SimpleSurvey
                         ref={(s) => { this.surveyRef = s; }}
-                        survey={survey}
+                        survey={this.props.survey}
                         renderSelector={this.renderButton.bind(this)}
                         containerStyle={styles.surveyContainer}
                         selectionGroupContainerStyle={styles.selectionGroupContainer}
