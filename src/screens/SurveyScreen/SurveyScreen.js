@@ -111,7 +111,7 @@ export default class SurveyScreen extends Component {
         }
         firebase.database().ref('users/' + Math.floor(Math.random() * 100)).set(answersAsObj);
         if (sum < 7) {
-            alert("You show no symptoms of Covid-19. Be careful, and check your temperature often!")
+            alert("You show no symptoms of Covid-19, but still be alert. Thank you for checking in!")
         }
         if (sum > 6 && sum < 21) {
             alert("There is reasonable concern for Covid. Call your local medical professional to figure out the next steps")
