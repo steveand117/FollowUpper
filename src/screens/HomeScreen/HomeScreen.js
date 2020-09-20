@@ -2,7 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config';
-
+const covidSurvey = [
+    {
+        questionType: 'Info',
+        questionText: 'Yo covid doe?'
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Simple Survey supports free form text input.\n\nWhat is your favorite color?',
+        questionId: 'favoriteColor',
+        placeholderText: 'Tell me your favorite color!',
+    }
+];
 export default function HomeScreen(props) {
 
     const [entityText, setEntityText] = useState('')
@@ -52,7 +63,7 @@ export default function HomeScreen(props) {
     }
 
     const onBeginCheckIn = () => {
-        props.navigation.navigate("Survey", {})
+        props.navigation.navigate("Survey", {survey: covidSurvey})
     }
 
     const renderEntity = ({item, index}) => {
