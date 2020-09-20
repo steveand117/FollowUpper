@@ -64,7 +64,8 @@ export default StyleSheet.create({
         fontSize: 20,
         color: '#333333',
         textAlign: 'center',
-        margin: '5px'
+        margin: '5px',
+        fontFamily: ActorFont
     },
     titleText: {
         fontSize: 24,
