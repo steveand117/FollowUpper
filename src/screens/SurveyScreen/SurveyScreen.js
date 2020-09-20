@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, ScrollView, Text, TextInput, View } from 'react-native';
+import { StyleSheet, ScrollView, Text, TextInput, View } from 'react-native';
+import styles from './styles';
 import { SimpleSurvey } from 'react-native-simple-survey';
+import { Button } from 'react-native-elements';
+const ActorFont = "Actor Regular";
 
-const GREEN = 'rgba(141,196,63,1)';
-const PURPLE = 'rgba(108,48,237,1)';
+const BLUE = 'rgba(160,210,250,1)';
+const PURPLE = 'rgba(239,86,86,1)';
+const WHITE = 'rgba(255,255,255,1)';
+
 
 const survey = [
+
     {
         questionType: 'Info',
         questionText: 'Welcome2 to the React Native Simple Survey Example app! Tap next to continue'
@@ -210,7 +216,7 @@ export default class SurveyScreen extends Component {
     static navigationOptions = () => {
         return {
             headerStyle: {
-                backgroundColor: GREEN,
+                backgroundColor: BLUE,
                 height: 40,
                 elevation: 5,
             },
@@ -224,7 +230,7 @@ export default class SurveyScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { backgroundColor: PURPLE, answersSoFar: '' };
+        this.state = { backgroundColor: BLUE, answersSoFar: '' };
     }
 
     onSurveyFinished(answers) {
@@ -286,10 +292,10 @@ export default class SurveyScreen extends Component {
         return (
             <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
                 <Button
-                    color={GREEN}
+                    type="outline"
                     onPress={onPress}
                     disabled={!enabled}
-                    backgroundColor={GREEN}
+                    backgroundColor={BLUE}
                     title={'Previous'}
                 />
             </View>
@@ -298,12 +304,12 @@ export default class SurveyScreen extends Component {
 
     renderNextButton(onPress, enabled) {
         return (
-            <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
+            <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10}}>
                 <Button
-                    color={GREEN}
+                    color={BLUE}
                     onPress={onPress}
                     disabled={!enabled}
-                    backgroundColor={GREEN}
+                    backgroundColor={BLUE}
                     title={'Next'}
                 />
             </View>
@@ -317,7 +323,7 @@ export default class SurveyScreen extends Component {
                     title={'Finished'}
                     onPress={onPress}
                     disabled={!enabled}
-                    color={GREEN}
+                    color={BLUE}
                 />
             </View>
         );
@@ -332,8 +338,8 @@ export default class SurveyScreen extends Component {
                 <Button
                     title={data.optionText}
                     onPress={onPress}
-                    color={isSelected ? GREEN : PURPLE}
-                    style={isSelected ? { fontWeight: 'bold' } : {}} 
+                    style={isSelected ? { fontWeight: 'bold' } : {}}
+                    type={isSelected ? "solid" : "outline" }
                     key={`button_${index}`}
                 />
             </View>
@@ -424,80 +430,4 @@ export default class SurveyScreen extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        minWidth: '70%',
-        maxWidth: '90%',
-        alignItems: 'stretch',
-        justifyContent: 'center',
-        
-        elevation: 20,
-        borderRadius: 10,
-        flex: 1, 
-    },
-    answersContainer: {
-        width: '90%',
-        maxHeight: '20%',
-        marginTop: 50,
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        marginBottom: 20,
-        backgroundColor: 'white',
-        elevation: 20,
-        borderRadius: 10,
-    },
-    surveyContainer: {
-        width: 'auto',
-        alignSelf: 'center',
-        backgroundColor: 'white',
-        borderBottomLeftRadius: 5,
-        borderBottomRightRadius: 5,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
-        alignContent: 'center',
-        padding: 5,
-        flexGrow: 0,
-    },
-    selectionGroupContainer: {
-        flexDirection: 'column',
-        backgroundColor: 'white',
-        alignContent: 'flex-end',
-    },
-    background: {
-        flex: 1,
-        minHeight: 800,
-        maxHeight: 800,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    questionText: {
-        marginBottom: 20,
-        fontSize: 20
-    },
-    textBox: {
-        borderWidth: 1,
-        borderColor: 'rgba(204,204,204,1)',
-        backgroundColor: 'white',
-        borderRadius: 10,
-        
-        padding: 10,
-        textAlignVertical: 'top',
-        marginLeft: 10,
-        marginRight: 10
-    },
-    numericInput: {
-        borderWidth: 1,
-        borderColor: 'rgba(204,204,204,1)',
-        backgroundColor: 'white',
-        borderRadius: 10,
-        padding: 10,
-        textAlignVertical: 'top',
-        marginLeft: 10,
-        marginRight: 10
-    },
-    infoText: {
-        marginBottom: 20,
-        fontSize: 20,
-        marginLeft: 10
-    },
-});
+
