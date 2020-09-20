@@ -51,6 +51,10 @@ export default function HomeScreen(props) {
         }
     }
 
+    const onBeginCheckIn = (props, user) => {
+        navigation.navigate('survey')
+    }
+
     const renderEntity = ({item, index}) => {
         return (
             <View style={styles.entityContainer}>
@@ -76,7 +80,13 @@ export default function HomeScreen(props) {
                 <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => onBeginCheckIn()}>
+                    <Text style={styles.buttonTitle}>Begin Check In</Text>
+                </TouchableOpacity>
             </View>
+            
             { entities && (
                 <View style={styles.listContainer}>
                     <FlatList
