@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, ScrollView, Text, TextInput, View } from 'react-native';
+import { StyleSheet, ScrollView, Text, TextInput, View } from 'react-native';
+import styles from './styles';
 import { SimpleSurvey } from 'react-native-simple-survey';
 import { firebase } from '../../firebase/config'
 import {setCustomText, setCustomTextInput} from 'react-native-global-props';
-const GREEN = 'rgba(141,196,63,1)';
-const PURPLE = 'rgba(108,48,237,1)';
+import { Button } from 'react-native-elements';
+
+
+
+const ActorFont = "Actor Regular";
+
+const BLUE = 'rgba(160,210,250,1)';
+const WHITE = 'rgba(255,255,255,1)';
+
 
 const defaultSurvey = [
+
     {
         questionType: 'Info',
         questionText: 'Welcome2 to the React Native Simple Survey Example app! Tap next to continue'
@@ -37,7 +46,7 @@ export default class SurveyScreen extends Component {
     static navigationOptions = () => {
         return {
             headerStyle: {
-                backgroundColor: GREEN,
+                backgroundColor: BLUE,
                 height: 40,
                 elevation: 5,
             },
@@ -54,7 +63,7 @@ export default class SurveyScreen extends Component {
         let survey;
         // this.itemsRef = firebase.database().ref();
         survey = props.survey == null ? defaultSurvey : props.survey;
-        this.state = { backgroundColor: PURPLE, answersSoFar: '' };
+        this.state = { backgroundColor: BLUE, answersSoFar: '' };
     }
 
     onSurveyFinished(answers) {
@@ -116,10 +125,10 @@ export default class SurveyScreen extends Component {
         return (
             <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
                 <Button
-                    color={GREEN}
+                    type="outline"
                     onPress={onPress}
                     disabled={!enabled}
-                    backgroundColor={GREEN}
+                    backgroundColor={BLUE}
                     title={'Previous'}
                 />
             </View>
@@ -128,12 +137,12 @@ export default class SurveyScreen extends Component {
 
     renderNextButton(onPress, enabled) {
         return (
-            <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
+            <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10}}>
                 <Button
-                    color={GREEN}
+                    color={BLUE}
                     onPress={onPress}
                     disabled={!enabled}
-                    backgroundColor={GREEN}
+                    backgroundColor={BLUE}
                     title={'Next'}
                 />
             </View>
@@ -147,7 +156,7 @@ export default class SurveyScreen extends Component {
                     title={'Finished'}
                     onPress={onPress}
                     disabled={!enabled}
-                    color={GREEN}
+                    color={BLUE}
                 />
             </View>
         );
@@ -162,8 +171,8 @@ export default class SurveyScreen extends Component {
                 <Button
                     title={data.optionText}
                     onPress={onPress}
-                    color={isSelected ? GREEN : PURPLE}
-                    style={isSelected ? { fontWeight: 'bold' } : {}} 
+                    style={isSelected ? { fontWeight: 'bold' } : {}}
+                    type={isSelected ? "solid" : "outline" }
                     key={`button_${index}`}
                 />
             </View>
