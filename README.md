@@ -7,14 +7,14 @@ We wanted the app to be widely accessible while also learning a modern framework
 
 ## Execution
 
-We wanted the app to be **quick and simple** so it doesn't feel like a pain to check in! It also had to be assessible and easy to understand for older folks.
+We wanted the app to be **quick and simple** so it doesn't feel like a pain to check in! We also wanted it to be assessible and easy to understand especially for older folks who have a hard time with technology.
 ### Frontend
 The first screen shows the most important information, whether or not you've done your check in!
 ![](./src/assets/HomeScreen.png)
 ![](./src/assets/SurveyPage1.png)
 ![](./src/assets/SurveyPageEnd.png)
 
-Different medical professionals like denists, general care physicians, or Georgia Tech's Covid-19 System can their schedule check-ins. The calendar gives patients a look ahead at their week. 
+Different medical professionals like denists, general care physicians, or Georgia Tech's Covid-19 Tracking System can their schedule check-ins. The calendar gives patients a look ahead at their week. 
 ![](./src/assets/CalenderScreen.png)
 
 ### Backend
