@@ -1,11 +1,14 @@
 
 import { StyleSheet } from 'react-native';
+const ActorFont = "Actor Regular";
+const CairoFont = "Cairo Regular";
+const BLUE = 'rgba(160,210,250,1)';
 
 export default StyleSheet.create({
     container: {
         minWidth: '70%',
-        maxWidth: '90%',
-        alignItems: 'stretch',
+        maxWidth: '100%',
+        alignItems: 'center',
         justifyContent: 'center',
         
         flex: 1, 
@@ -35,14 +38,16 @@ export default StyleSheet.create({
     button: {
         height: 47,
         borderRadius: 5,
-        backgroundColor: '#788eec',
+        backgroundColor: '#2089DC',
         width: 150,
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 10,
     },
     buttonText: {
         color: 'white',
-        fontSize: 16
+        fontSize: 18,
+        fontFamily: ActorFont,
     },
     listContainer: {
         marginTop: 20,
@@ -57,5 +62,11 @@ export default StyleSheet.create({
     entityText: {
         fontSize: 20,
         color: '#333333'
+    },
+    titleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        fontFamily: CairoFont,
+        color: BLUE,
     }
 })

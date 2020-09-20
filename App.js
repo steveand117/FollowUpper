@@ -130,7 +130,7 @@ export default function App() {
                 size = size + 7
               }
             }
-            if (route.name == 'Calender') {
+            if (route.name == 'Calendar') {
               iconName = focused
                 ? 'calendar-blank'
                 : 'calendar-blank-outline'
@@ -141,7 +141,7 @@ export default function App() {
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
+          activeTintColor: '#A0D2FA',
           inactiveTintColor: 'gray',
         }}
       >
@@ -151,11 +151,9 @@ export default function App() {
           <Tab.Screen name="Survey">
             {props => <SurveyScreen {...props} extraData={user} survey={defaultSurvey} />}
           </Tab.Screen>
-          <Tab.Screen name="Calender">
+          <Tab.Screen name="Calendar">
             {props => <CalenderScreen {...props} extraData={user} survey={defaultSurvey} />}
           </Tab.Screen>
-            <Tab.Screen name="Login" component={LoginScreen} />
-            <Tab.Screen name="Registration" component={RegistrationScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

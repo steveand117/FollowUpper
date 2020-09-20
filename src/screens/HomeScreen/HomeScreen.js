@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config';
+import {Image} from 'react-native-elements'
+import logo from 'C:/Users/Stephanie/Desktop/desktop 2 - electric boogaloo/gatech/FollowUpper/src/assets/hackmit.svg'
+
 const covidSurvey = [
     {
         questionType: 'Info',
@@ -69,6 +72,7 @@ export default function HomeScreen(props) {
     const renderEntity = ({item, index}) => {
         return (
             <View style={styles.entityContainer}>
+
                 <Text style={styles.entityText}>
                     {index}. {item.text}
                 </Text>
@@ -79,13 +83,20 @@ export default function HomeScreen(props) {
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
-
+            <Text style={styles.titleText}>
+                    {'FOLLOWUPPER'}
+                  </Text>
+              <Image
+                source={{ uri: logo}}
+                style={{ width: 200, height: 200 }}
+              />
                 <TouchableOpacity
                     style={styles.button}
                     onPress={onBeginCheckIn}
                     >
                     <Text style={styles.buttonText}>Begin Check In</Text>
                 </TouchableOpacity>
+
             </View>
             
         </View>
